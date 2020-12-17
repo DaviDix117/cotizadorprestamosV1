@@ -14,17 +14,19 @@ export default function Form(props){
                     placeholder="Cantidad a pedir"
                     keyboardType="numeric"
                     style={styles.input}
+                    onChange={e => setCapital(e.nativeEvent.text )}
                 />
                 <TextInput
                     placeholder="Interés %"
                     keyboardType="numeric"
                     style={[styles.input, styles.inputPercentage]}
+                    onChange={e => setInterest(e.nativeEvent.text )}
                 />
             </View>
             
             <RNPickerSelect
             style={picketSelectStyles}
-            onValueChange={(value) => console.log(value)}
+            onValueChange={(value) => setMonths(value)}
             items={[
                 { label: '3 meses', value: '3' },
                 { label: '6 meses', value: '6' },
