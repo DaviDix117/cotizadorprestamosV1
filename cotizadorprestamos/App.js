@@ -1,16 +1,26 @@
-import React from "react";
-import {StyleSheet, View, Text, SafeAreaView, StatusBar} from "react-native";
+import React, {useState} from "react";
+import {StyleSheet, View, Text, SafeAreaView, StatusBar, Button} from "react-native";
 import colors from "./src/utils/colors";
 import Form from "./src/components/Form";
 
 export default function App(){
+  const [capital, setCapital] = useState(null);
+  const [interest, setInterest] = useState(null)
+  const [months, setMonths] = useState(null);
+
+  const onSubmint = () => {
+    console.log("capital => ", capital)
+    console.log("interes => ", interest)
+    console.log("mes => ", months)
+  }
+
   return(
     <>
     <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.background} />
         <Text style={styles.titleApp}>Cotizador de Prestamos</Text>
-        <Form />
+        <Form setCapital={setCapital} setInterest={setInterest} setMonths={setMonths}  />
       </SafeAreaView>
 
       <View>
@@ -18,6 +28,7 @@ export default function App(){
       </View>
 
       <View>
+        <Button title="Enviar" onPress={onSubmint} />
         <Text>Footer</Text>
       </View>
     </>

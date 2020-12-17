@@ -4,7 +4,9 @@ import RNPickerSelect from 'react-native-picker-select';
 import colors from "../utils/colors";
 
 
-export default function Form(){
+export default function Form(props){
+    const {setCapital, setInterest, setMonths} = props
+
     return(
         <View style={styles.viewForm}>
             <View style={styles.viewInputs}>
@@ -24,9 +26,11 @@ export default function Form(){
             style={picketSelectStyles}
             onValueChange={(value) => console.log(value)}
             items={[
-                { label: 'Football', value: 'football' },
-                { label: 'Baseball', value: 'baseball' },
-                { label: 'Hockey', value: 'hockey' },
+                { label: '3 meses', value: '3' },
+                { label: '6 meses', value: '6' },
+                { label: '12 meses', value: '12' },
+                { label: '24 meses', value: '24' },
+
             ]}
         />           
         </View>
