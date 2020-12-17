@@ -6,8 +6,9 @@ import Form from "./src/components/Form";
 export default function App(){
   return(
     <>
-    <StatusBar barStyle={"light-content"}/> 
+    <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safeArea}>
+        <View style={styles.background} />
         <Text style={styles.titleApp}>Cotizador de Prestamos</Text>
         <Form />
       </SafeAreaView>
@@ -25,18 +26,24 @@ export default function App(){
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: colors.PRIMARY_COLOR, //el colors es la importacion del archivo colors
+    height: 290,
+    alignItems: 'center',
+  },
+  background: {
+    backgroundColor: colors.PRIMARY_COLOR,
     height: 200,
+    width: '100%',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
-    alignItems: "center",
+    position: 'absolute',
+    zIndex: -1,
   },
   titleApp: {
     fontSize: 25,
-    fontWeight: "bold",
-    color:"#fff",
+    fontWeight: 'bold',
+    color: '#fff',
     marginTop: 15,
-  }
+  },
 
 }); 
 

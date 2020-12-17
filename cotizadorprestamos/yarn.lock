@@ -1156,6 +1156,11 @@
   "resolved" "https://registry.npmjs.org/@react-native-community/picker/-/picker-1.8.1.tgz"
   "version" "1.8.1"
 
+"@react-native-picker/picker@^1.9.5":
+  "integrity" "sha512-d7ZU+p80NA+II4Vg9dcuXLjN95/qtBfGxqYTbD8p2WTkbW3b4EAKQgzRQnIWFjcZhunagOSH2UbvdCiqDnRwcQ=="
+  "resolved" "https://registry.npmjs.org/@react-native-picker/picker/-/picker-1.9.5.tgz"
+  "version" "1.9.5"
+
 "@sinonjs/commons@^1.7.0":
   "integrity" "sha512-892K+kWUUi3cl+LlqEWIDrhvLgdL79tECi8JZUyq6IviKy/DNhuzCRlbHUjxK89f4ypPMMaFnFuR9Ie6DoIMsw=="
   "resolved" "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.1.tgz"
