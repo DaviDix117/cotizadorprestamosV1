@@ -1,6 +1,7 @@
 import React from "react";
 import {StyleSheet, TextInput, View} from "react-native";
-// import RNPickerSelect from 'react-native-picker-select';
+import RNPickerSelect from 'react-native-picker-select';
+
 
 import colors from "../utils/colors";
 
@@ -19,6 +20,15 @@ export default function Form(){
                     style={[styles.input, styles.inputPercentage]}>
                 </TextInput>
             </View>
+            
+            <RNPickerSelect
+                onValueChange={(value) => console.log(value)}
+                items={[
+                    { label: 'Football', value: 'football' },
+                    { label: 'Baseball', value: 'baseball' },
+                    { label: 'Hockey', value: 'hockey' },
+                ]}
+            />            
         </View>
     );
 }
