@@ -1,19 +1,45 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {StyleSheet, View, Text, SafeAreaView, StatusBar, Button} from "react-native";
 import colors from "./src/utils/colors";
 import Form from "./src/components/Form";
 import Footer from "./src/components/Footer";
+import ResultCalculation from './src/components/ResultCalculation';
 
 export default function App(){
   const [capital, setCapital] = useState(null);
   const [interest, setInterest] = useState(null)
   const [months, setMonths] = useState(null);
+  const [total, setTotal] = useState(null); //Guradar el total a pagar y pagar cada mes
+  const [errorMessage, setErrorMessage] = useState(null);  //estado para mensaje de error
+
+  useEffect(() => {
+    if (capital && interest && months) calculate();
+    else reset();
+  }, [capital, interest, months]);
 
   const calculate = () => {
-    console.log("capital => ", capital)
-    console.log("interes => ", interest)
-    console.log("mes => ", months)
-  }
+    reset();
+    if (!capital) {
+      setErrorMessage('Añade la cantidad que quieres solicitar');
+    } else if (!interest) {
+      setErrorMessage('Añade el interes del prestamos');
+    } else if (!months) {
+      setErrorMessage('Seleccióna los meses a pagar');
+    } else {
+      const i = interest / 100;
+      const fee = capital / ((1 - Math.pow(i + 1, -months)) / i);
+      setTotal({
+        monthlyFee: fee.toFixed(2).replace('.', ','),
+        totalPayable: (fee * months).toFixed(2).replace('.', ','),
+      });
+    }
+  };
+
+  //Funcion para limpiar los errores y el total de nuestro formulario
+  const reset = () => {
+    setErrorMessage('');
+    setTotal(null);
+  };
 
   return(
     <>
@@ -24,9 +50,14 @@ export default function App(){
         <Form setCapital={setCapital} setInterest={setInterest} setMonths={setMonths}  />
       </SafeAreaView>
 
-      <View>
-        <Text>Resulatdo</Text>
-      </View>
+      {/* Envar el estado de error */}
+      <ResultCalculation
+        capital={capital}
+        interest={interest}
+        months={months}
+        total={total}
+        errorMessage={errorMessage}
+      /> 
 
       <Footer calculate={calculate} />
       
