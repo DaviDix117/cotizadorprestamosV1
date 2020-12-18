@@ -7,7 +7,7 @@ import ResultCalculation from './src/components/ResultCalculation';
 
 export default function App(){
   const [capital, setCapital] = useState(null);
-  const [interest, setInterest] = useState(null)
+  const [interest, setInterest] = useState(null);
   const [months, setMonths] = useState(null);
   const [total, setTotal] = useState(null); //Guradar el total a pagar y pagar cada mes
   const [errorMessage, setErrorMessage] = useState(null);  //estado para mensaje de error
@@ -35,7 +35,7 @@ export default function App(){
     }
   };
 
-  //Funcion para limpiar los errores y el total de nuestro formulario
+  //Función para limpiar los errores y el total de nuestro formulario
   const reset = () => {
     setErrorMessage('');
     setTotal(null);
@@ -47,10 +47,12 @@ export default function App(){
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.background} />
         <Text style={styles.titleApp}>Cotizador de Prestamos</Text>
+
         <Form setCapital={setCapital} setInterest={setInterest} setMonths={setMonths}  />
+
       </SafeAreaView>
 
-      {/* Envar el estado de error */}
+      {/* Enviar el estado de error */}
       <ResultCalculation
         capital={capital}
         interest={interest}
@@ -67,12 +69,12 @@ export default function App(){
 
 const styles = StyleSheet.create({
   safeArea: {
-    height: 290,
+    height: 230,
     alignItems: 'center',
   },
   background: {
     backgroundColor: colors.PRIMARY_COLOR,
-    height: 200,
+    height: 160,
     width: '100%',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,

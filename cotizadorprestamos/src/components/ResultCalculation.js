@@ -3,6 +3,7 @@ import { StyleSheet, Text, View} from 'react-native'
 
 export default function ResultCalculation(props) {
     const {capital, interest, months, total ,errorMessage} = props; //Captura el estado
+    
     return (
         <View style={styles.content}>
 
